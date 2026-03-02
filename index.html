@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fdf2f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 500px;
+    position: relative;
+    z-index: 2;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #ff6b81;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #ff4757;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    color: #ff6b81;
+}
+
+/* Decrease font size slightly for third page */
+#letter {
+    font-size: 12px;
+}
+
+#letter h1 {
+    font-size: 22px;
+}
+
+/* Floating Hearts */
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    bottom: -20px;
+    color: #ff6b81;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts-container"></div>
+<div class="container" id="intro">
+    <h1>Helloo💕</h1>
+    <p>Hope you're doing good.</p>
+    <button onclick="showSurprise()">Click Here🎁</button>
+</div>
+<div class="container hidden" id="surprise">
+    <h1>Happy Birthday To You❤️</h1>
+    <p>
+        I pray that this year brings you the success, peace and everything your heart desires.
+    </p>
+    <button onclick="showLetter()">Read More 💌</button>
+</div>
+<div class="container hidden" id="letter">
+    <h1>My Heart❤️</h1>
+    <p>I knw I luv u more... more thn u evr needed, more than u evr askd fr maybe tht’s my weakness. U my nt care mch abut me. But a smll txt and little care is all I needed to heal my whole day which u failed to gv. I don’t wnt ur prmses or gfts all I need is nuvvu hppy ga undali. Bcz luv ante ne luvng smeone evn whn the heart is brken kada.</p>
+    <p>Luv ante emo kuda telidhu alanti oka prsn ni luv ane commtmnt lo theeskochi u made her feel worse. Edo oka roju…nuvvu naa premanu artm cheskuntavu, nenu hppy ga undachu anukunna kani I knw tht it will nvr gng to hppn. Okavela artm cheskunte, tht will be my hppiest day. Artham cheskokpoina, still I will be vry thnkful bcz I luvd smeone wth my whole heart in my lyf.</p>
+    <p>U chnged me… u made me strnger, softer and smetmes evn worser. Thr wer times I felt hurt, times I felt lost. I thought u will be there fr me at my lwst. But u chose ur ego over LOVE evrytym I needed u. But evn in those moments, my heart chose u, nt bcz u are perfect. I'm nt askng u to luv me more I am jst askng u to nvr frgt tht there was a grl who luvs u mre thn hrslf no mtter wt..</p>
+    <p>I gve you so many chances tht no one else would hv gvn, thnkng u would chnge but u didn’t. U made mny promises, but u didn’t keep even one. Evrytym I bring any issue to u, ur taking me fr grnted nd repeating the same behaviour tht u said u don't. Life ni chaala imgne chskunna and chala hopes pettukunna but u've shwn what reality is. I feel emotionally alone in this relationship, and it makes me question my place in ur lyf.</p>
+<p>Niku backup plan emanna undho ledho ani telidhu kani. Prathisari vadilei vadilei ani chepputho kottinattu cheppina siggu lekunda oka call tho anni marchipoi nrml aipothunna kani, this tym i chose my self respect over evrythng. Finally the day u r waitng fr has arrived I think.</p>
+    <p>I hope my absnce will gv u evrythng u crave fr wch u didn't get in my prsnce. Wshng u a vry HAPPY BIRTHDAY once again.</p>
+    <p>❤️From Known Stranger❤️</p>
+    <audio id="birthday-audio" controls loop>
+        <source src="birthday.mpeg" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+function showSurprise() {
+    document.getElementById("intro").classList.add("hidden");
+    document.getElementById("surprise").classList.remove("hidden");
+    startHearts();
+}
+
+function showLetter() {
+    document.getElementById("surprise").classList.add("hidden");
+    document.getElementById("letter").classList.remove("hidden");
+    
+    const audio = document.getElementById("birthday-audio");
+    audio.play();
+}
+
+function startHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.getElementById("hearts-container").appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }, 500);
+}
+</script>
+
+</body>
+</html>
